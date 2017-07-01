@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <script th:src="@{jquery/jquery-3.2.1.min.js}"></script>
+    <link th:href="@{bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+    <script th:src="@{bootstrap/js/bootstrap.js}"></script>
+    <style>
+        #list{
+            display: block;
+            width: 30%;
+            height: 25%;
+        }
+    </style>
+</head>
+<body>
+<span th:include="common::header"></span>
+<div class="panel-body">
+    <ul class="list-group">
+        <li  id="list" class="list-group-item" th:each="goods:${products}">
+            <h4 th:text="${goods.name}"></h4>
+            <h3 class="text-danger" th:text="${goods.price}"></h3>
+            <p class="text-muted" th:text="${goods.shop.name}"></p>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
